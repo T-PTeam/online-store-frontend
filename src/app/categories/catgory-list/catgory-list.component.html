@@ -1,7 +1,3 @@
-<h2>Category List</h2>
-
-<ul>
-  <li *ngFor="let category of categories">
-    {{ category.name }}
-  </li>
-</ul>
+<li *ngFor="let category of categories">
+  <a class="dropdown-item">{{ category.name }}</a>
+</li>

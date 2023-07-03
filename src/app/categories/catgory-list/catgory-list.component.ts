@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OnlineStoreApi } from 'src/app/shared/services/online-store-api.service';
+import { OnlineStoreApiService } from 'src/app/shared/services/online-store-api.service';
 import { Category } from 'src/app/shared/models/category.model';
 
 @Component({
@@ -10,10 +10,10 @@ import { Category } from 'src/app/shared/models/category.model';
 export class CatgoryListComponent implements OnInit {
   categories: Category[] = [];
 
-  constructor(private onlineStoreApi: OnlineStoreApi) { }
+  constructor(private onlineStoreApi: OnlineStoreApiService) { }
 
   ngOnInit(): void {
-    this.onlineStoreApi.getCategories(1, 10)
+    this.onlineStoreApi.getCategories(1,10)
       .subscribe(
         (categories) => {
           this.categories = categories;

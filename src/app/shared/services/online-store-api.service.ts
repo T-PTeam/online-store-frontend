@@ -10,7 +10,7 @@ import { PaginationResponse } from '../models/pagination-response.model';
     providedIn: 'root'
 })
 
-export class OnlineStoreApi {
+export class OnlineStoreApiService {
 
     onlineStoreApiUrl: string = environment.baseApiUrl;
 
@@ -39,7 +39,7 @@ export class OnlineStoreApi {
     }
 
     deleteProduct(id: number) {
-        return this.http.delete(this.onlineStoreApiUrl + '/products');
+        return this.http.delete(this.onlineStoreApiUrl + `/products/${id}`);
     }
 
     //Category
@@ -64,6 +64,6 @@ export class OnlineStoreApi {
     }
 
     deleteCategory(id: number){
-        return this.http.delete(this.onlineStoreApiUrl + '/categories');
+        return this.http.delete(this.onlineStoreApiUrl + `/categories/${id}`);
     }
 }

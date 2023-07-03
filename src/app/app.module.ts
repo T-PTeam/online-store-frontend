@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';;
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CatgoryListComponent } from './categories/catgory-list/catgory-list.component';
+import { AddCategoryComponent } from './categories/add-category/add-category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatgoryListComponent
+    CatgoryListComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
