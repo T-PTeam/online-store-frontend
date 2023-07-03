@@ -3,11 +3,11 @@ import { OnlineStoreApiService } from 'src/app/shared/services/online-store-api.
 import { Category } from 'src/app/shared/models/category.model';
 
 @Component({
-  selector: 'app-catgory-list',
-  templateUrl: './catgory-list.component.html',
-  styleUrls: ['./catgory-list.component.css']
+  selector: 'app-category-list',
+  templateUrl: './category-list.component.html',
+  styleUrls: ['./category-list.component.css']
 })
-export class CatgoryListComponent implements OnInit {
+export class CategoryListComponent implements OnInit {
   categories: Category[] = [];
 
   constructor(private onlineStoreApi: OnlineStoreApiService) { }
