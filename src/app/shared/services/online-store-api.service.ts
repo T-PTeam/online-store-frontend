@@ -55,8 +55,8 @@ export class OnlineStoreApiService {
         return this.http.get<Category>(this.onlineStoreApiUrl + `/categoreis/${id}`);
     }
 
-    addCategory(data: Category) {
-        return this.http.post(this.onlineStoreApiUrl + '/categories', data);
+    addCategory(addCategoryRequest: Category) {
+        return this.http.post(this.onlineStoreApiUrl + '/categories', addCategoryRequest);
     }
 
     updatateCategory(data: Category) {
