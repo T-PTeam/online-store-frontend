@@ -1,20 +1,21 @@
-<div class="container my-5">
+<div class="container my-5 d-flex justify-content-center align-items-center">
     <h1 class="mb-3">Add new category</h1>
 </div>
 
-
 <div class="row">
     <div class="col-6">
-        <form #form="ngForm" (ngSubmit)="addCategory()">
+        <form #form="ngForm" (ngSubmit)="addCategory(form)" novalidate>
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="addCategoryRequest.name">
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="addCategoryRequest.name" required #name="ngModel">
+                <div *ngIf="(form.submitted || name.touched) && name.invalid" class="text-danger">Name is required</div>
             </div>
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" id="slug" name="slug" [(ngModel)]="addCategoryRequest.slug">
+                <input type="text" class="form-control" id="slug" name="slug" [(ngModel)]="addCategoryRequest.slug" required #slug="ngModel">
+                <div *ngIf="(form.submitted || slug.touched) && slug.invalid" class="text-danger">Slug is required</div>
             </div>
-            <button type="submit" class="btn btn-primary">Sumbit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>

@@ -13,7 +13,7 @@ export class CategoryListComponent implements OnInit {
   constructor(private onlineStoreApi: OnlineStoreApiService) { }
 
   ngOnInit(): void {
-    this.onlineStoreApi.getCategories(1,10)
+    this.onlineStoreApi.getCategories(1,1000)
       .subscribe(
         (categories) => {
           this.categories = categories;
