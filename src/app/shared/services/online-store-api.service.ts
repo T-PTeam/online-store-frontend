@@ -17,13 +17,13 @@ export class OnlineStoreApiService {
     constructor(private http: HttpClient) { }
 
     //Products
-    getProducts(pageNumber: number, pageSize: number, slug: string = ""): Observable<PaginationResponse<Product[]>> {
+    getProducts(pageNumber: number, pageSize: number, categorySlug: string = ""): Observable<PaginationResponse<Product>> {
         const params = new HttpParams()
           .set('pageNumber', pageNumber.toString())
           .set('pageSize', pageSize.toString())
-          .set('slug', slug);
+          .set('categorySlug', categorySlug);
 
-        return this.http.get<PaginationResponse<Product[]>>(this.onlineStoreApiUrl + '/products', {params});
+        return this.http.get<PaginationResponse<Product>>(this.onlineStoreApiUrl + '/products', {params});
     }
 
     getProductById(id: number): Observable<Product> {

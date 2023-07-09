@@ -27,14 +27,13 @@ export class AddCategoryComponent implements OnInit {
   addCategory(form: NgForm) {
     this.onlineStoreApi.addCategory(this.addCategoryRequest)
     .subscribe({
-      next: (category)=>{
+      next: (category)=> {
         this.resetForm(form);
         this.toasrt.success('Category has been add success!');
         console.log(category);
       },
       error: (err)=> {
         this.toasrt.error(err.message);
-        
         console.log(err);
       },
     });
