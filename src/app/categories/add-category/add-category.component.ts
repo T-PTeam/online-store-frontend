@@ -39,6 +39,10 @@ export class AddCategoryComponent implements OnInit {
     });
   }
 
+  updateSlug() {
+    this.addCategoryRequest.slug = this.addCategoryRequest.name.toLowerCase();
+  }
+  
   resetForm(from: NgForm){
     from.form.reset();
     this.addCategoryRequest = new Category(0, '','');

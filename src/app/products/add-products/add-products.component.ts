@@ -3,6 +3,7 @@ import { Product } from 'src/app/shared/models/product.model';
 import { Category } from 'src/app/shared/models/category.model';
 import { OnlineStoreApiService } from 'src/app/shared/services/online-store-api.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-products',
@@ -17,6 +18,7 @@ export class AddProductsComponent implements OnInit {
     slug: '',
     description: '',
     categoryId: 0,
+    categoryName: '',
     price: 0.00,
     image: ''
   };
@@ -39,10 +41,11 @@ export class AddProductsComponent implements OnInit {
     );
   }
 
-  addProduct(){
+  addProduct(form: NgForm){
     this.onlineStoreApi.addProduct(this.addProductRequest)
     .subscribe({
       next: (product)=> {
+        this.resetForm(form);
         this.toasrt.success('Product has been add success!');
         console.log(product);
       },
@@ -52,4 +55,14 @@ export class AddProductsComponent implements OnInit {
       },
     });
   }
+
+  resetForm(from: NgForm){
+    from.form.reset();
+    this.addProductRequest = new Product(0, '','','',0,'',0.00,'');
+  }
+
+  updateSlug() {
+    this.addProductRequest.slug = this.addProductRequest.name.toLowerCase();
+  }
+  
 }

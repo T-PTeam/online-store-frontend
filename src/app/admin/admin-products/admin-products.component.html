@@ -1,0 +1,31 @@
+<h1>Products</h1>
+
+<p>
+    <a routerLink="add">Create</a>
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Image</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of products.data">
+      <td>{{ item.name }}</td>
+      <td>{{ item.price | currency }}</td>
+      <td>{{ item.categoryName }}</td>
+      <td>
+        <img [src]="'/media/products/' + item.image" width="100" alt="" />
+      </td>
+      <td>
+        <a href="#">Edit</a> |
+        <a href="#" class="confirmDeletion">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

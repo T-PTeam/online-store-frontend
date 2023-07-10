@@ -7,12 +7,12 @@
         <form #form="ngForm" (ngSubmit)="addCategory(form)" novalidate>
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="addCategoryRequest.name" required #name="ngModel">
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="addCategoryRequest.name" required #name="ngModel" (input)="updateSlug()">
                 <div *ngIf="(form.submitted || name.touched) && name.invalid" class="text-danger">Name is required</div>
             </div>
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" id="slug" name="slug" [(ngModel)]="addCategoryRequest.slug" required #slug="ngModel">
+                <input type="text" class="form-control" id="slug" name="slug" [(ngModel)]="addCategoryRequest.slug" required #slug="ngModel" readonly>
                 <div *ngIf="(form.submitted || slug.touched) && slug.invalid" class="text-danger">Slug is required</div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

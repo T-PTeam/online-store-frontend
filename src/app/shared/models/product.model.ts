@@ -4,6 +4,7 @@ export class Product{
         public slug: string,
         public description: string,
         public categoryId: number,
+        public categoryName: string,
         public price: number,
         public image: string){
     }
