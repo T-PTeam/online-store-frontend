@@ -23,7 +23,7 @@
         <img [src]="'/media/products/' + item.image" width="100" alt="" />
       </td>
       <td>
-        <a href="#">Edit</a> |
+        <a [routerLink]="['edit/', item.id]">Edit</a> |
         <a href="#" class="confirmDeletion">Delete</a>
       </td>
     </tr>

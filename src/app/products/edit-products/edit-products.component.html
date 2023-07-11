@@ -1,0 +1,39 @@
+<div class="container my-5 d-flex justify-content-center align-items-center">
+    <h1 class="mb-3">Edit product</h1>
+</div>
+
+
+<div class="row">
+    <div class="col-6">
+        <form #form="ngForm"(ngSubmit)="editProduct()">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="editProductRequest.name" (input)="updateSlug()">
+            </div>
+            <div class="mb-3">
+                <label for="slug" class="form-label">Slug</label>
+                <input type="text" class="form-control" id="slug" name="slug" [(ngModel)]="editProductRequest.slug" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="slug" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" name="description" [(ngModel)]="editProductRequest.description">
+            </div>
+            <div class="mb-3">
+                <label for="categoryId" class="form-label">Category</label>
+                <select class="form-control" id="categoryId" name="categoryId" [(ngModel)]="editProductRequest.categoryId">
+                  <option value="0">Select category</option>
+                  <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+                </select>
+              </div>
+            <div class="mb-3">
+                <label for="slug" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price" name="price" [(ngModel)]="editProductRequest.price">
+            </div>
+            <div class="mb-3">
+                <label for="slug" class="form-label">Image</label>
+                <input type="text" class="form-control" id="image" name="Image" [(ngModel)]="editProductRequest.image">
+            </div>
+            <button type="submit" class="btn btn-primary">Sumbit</button>
+        </form>
+    </div>
+</div>
