@@ -15,7 +15,7 @@
                 <input type="text" class="form-control" id="slug" name="slug" [(ngModel)]="addProductRequest.slug" readonly>
             </div>
             <div class="mb-3">
-                <label for="slug" class="form-label">Description</label>
+                <label for="description" class="form-label">Description</label>
                 <input type="text" class="form-control" id="description" name="description" [(ngModel)]="addProductRequest.description">
             </div>
             <div class="mb-3">
@@ -26,12 +26,12 @@
                 </select>
               </div>
             <div class="mb-3">
-                <label for="slug" class="form-label">Price</label>
+                <label for="price" class="form-label">Price</label>
                 <input type="number" class="form-control" id="price" name="price" [(ngModel)]="addProductRequest.price">
             </div>
             <div class="mb-3">
-                <label for="slug" class="form-label">Image</label>
-                <input type="text" class="form-control" id="image" name="Image" [(ngModel)]="addProductRequest.image">
+                <label for="image" class="form-label">Image</label>
+                <input (change)="onFileChange($event)" type="file" id="fileUpload" [(ngModel)]="addProductRequest.image">
             </div>
             <button type="submit" class="btn btn-primary">Sumbit</button>
         </form>

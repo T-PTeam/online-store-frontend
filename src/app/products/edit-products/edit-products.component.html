@@ -31,7 +31,7 @@
             </div>
             <div class="mb-3">
                 <label for="slug" class="form-label">Image</label>
-                <input type="text" class="form-control" id="image" name="Image" [(ngModel)]="editProductRequest.image">
+                <input (change)="onFileChange($event)" type="file" id="image" name="image" [(ngModel)]="editProductRequest.image">
             </div>
             <button type="submit" class="btn btn-primary">Sumbit</button>
         </form>

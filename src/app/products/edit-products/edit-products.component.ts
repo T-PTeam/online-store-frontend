@@ -21,7 +21,7 @@ export class EditProductsComponent implements OnInit {
     categoryId: 0,
     categoryName: '',
     price: 0.00,
-    image: ''
+    image: null
   };
 
   categories: Category[] = [];
@@ -54,12 +54,11 @@ export class EditProductsComponent implements OnInit {
     );
   }
   
-
   editProduct() {
     this.onlineStoreApi.updateProduct(this.editProductRequest)
     .subscribe({
       next: (product)=> {
-        this.toasrt.success("Test");
+        this.toasrt.success("Product has been edit success!");
         console.log(product);
       },
       error: (error)=> {
@@ -71,5 +70,11 @@ export class EditProductsComponent implements OnInit {
   
   updateSlug() {
     this.editProductRequest.slug = this.editProductRequest.name.toLowerCase();
+  }
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    this.editProductRequest.image = file;
+    console.log(event);
   }
 }

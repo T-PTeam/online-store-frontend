@@ -20,15 +20,13 @@ export class AddProductsComponent implements OnInit {
     categoryId: 0,
     categoryName: '',
     price: 0.00,
-    image: ''
+    image: null
   };
 
   categories: Category[] = [];
 
-
   constructor(private onlineStoreApi: OnlineStoreApiService, private toasrt: ToastrService){ }
 
-  //TODO: 
   ngOnInit(): void {
     this.onlineStoreApi.getCategories(1, 10)
     .subscribe(
@@ -56,13 +54,18 @@ export class AddProductsComponent implements OnInit {
     });
   }
 
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    this.addProductRequest.image = file;
+    console.log(event);
+  }
+
   resetForm(from: NgForm){
     from.form.reset();
-    this.addProductRequest = new Product(0, '','','',0,'',0.00,'');
+    this.addProductRequest = new Product(0, '', '', '', 0, '', 0.00, null);
   }
 
   updateSlug() {
     this.addProductRequest.slug = this.addProductRequest.name.toLowerCase();
   }
-  
 }

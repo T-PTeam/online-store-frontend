@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
@@ -22,7 +22,6 @@ export class OnlineStoreApiService {
           .set('pageNumber', pageNumber.toString())
           .set('pageSize', pageSize.toString())
           .set('categorySlug', categorySlug);
-
         return this.http.get<PaginationResponse<Product>>(this.onlineStoreApiUrl + '/products', {params});
     }
 
@@ -31,11 +30,30 @@ export class OnlineStoreApiService {
     }
 
     addProduct(data: Product) {
-        return this.http.post(this.onlineStoreApiUrl + '/products', data);
+        const apiUrl = `${this.onlineStoreApiUrl}/products`;
+        const form = new FormData;
+        form.append('name', data.name);
+        form.append('slug', data.slug);
+        form.append('description', data.description);
+        form.append('categoryId', data.categoryId.toString());
+        form.append('categoryName', data.categoryName)
+        form.append('price', data.price.toString());
+        form.append('image', data.image);
+        return this.http.post(apiUrl, form);
     }
 
     updateProduct(data: Product) {
-        return this.http.put(this.onlineStoreApiUrl + '/products', data);
+        const apiUrl = `${this.onlineStoreApiUrl}/products`;
+        const form = new FormData;
+        form.append('id', data.id.toString());
+        form.append('name', data.name);
+        form.append('slug', data.slug);
+        form.append('description', data.description);
+        form.append('categoryId', data.categoryId.toString());
+        form.append('categoryName', data.categoryName)
+        form.append('price', data.price.toString());
+        form.append('image', data.image);
+        return this.http.put(apiUrl, form);
     }
 
     deleteProduct(id: number) {
@@ -63,7 +81,7 @@ export class OnlineStoreApiService {
         return this.http.put(this.onlineStoreApiUrl + '/categories', data);
     }
 
-    deleteCategory(id: number){
+    deleteCategory(id: number) {
         return this.http.delete(this.onlineStoreApiUrl + `/categories/${id}`);
     }
 }
