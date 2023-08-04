@@ -31,7 +31,7 @@ const routes: Routes = [
   {
     path: 'admin/products/edit/:id',
     component: EditProductsComponent
-  },
+  }
 ];
 
 @NgModule({

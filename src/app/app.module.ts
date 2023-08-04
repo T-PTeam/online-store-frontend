@@ -23,7 +23,7 @@ import { EditProductsComponent } from './products/edit-products/edit-products.co
     AddProductsComponent,
     AdminProductsComponent,
     AdminCategoriesComponent,
-    EditProductsComponent,
+    EditProductsComponent
   ],
   imports: [
     BrowserModule,

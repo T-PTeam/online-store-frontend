@@ -56,10 +56,11 @@ export class OnlineStoreApiService {
         return this.http.put(apiUrl, form);
     }
 
-    deleteProduct(id: number) {
-        return this.http.delete(this.onlineStoreApiUrl + `/products/${id}`);
+    deleteProduct(id: number) : Observable<Product> {
+        const requestBody = { id: id };
+        return this.http.delete<Product>(this.onlineStoreApiUrl + `/products/`, {body: requestBody});
     }
-
+      
     //Category
     getCategories(pageNumber: number, pageSize: number): Observable<Category[]> {
         const params = new HttpParams()

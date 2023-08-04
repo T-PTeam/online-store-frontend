@@ -1,7 +1,7 @@
 <h1>Products</h1>
 
 <p>
-    <a routerLink="add">Create</a>
+    <a routerLink="add/">Create</a>
 </p>
 
 <table class="table">
@@ -24,7 +24,7 @@
       </td>
       <td>
         <a [routerLink]="['edit/', item.id]">Edit</a> |
-        <a href="#" class="confirmDeletion">Delete</a>
+        <a [routerLink]="['delete/', item.id]" (click)="removeProduct(item.id)">Delete</a>
       </td>
     </tr>
   </tbody>
