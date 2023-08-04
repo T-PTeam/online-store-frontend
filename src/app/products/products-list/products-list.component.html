@@ -1,0 +1,22 @@
+<h1 class="text">Products</h1>
+
+<div class="row">
+  <div class="product-card" *ngFor="let item of products.data">
+    <div class="product-card-item">
+      <a class="share-icon" href="/">
+        <img src="/assets/brand/share.svg">
+      </a>
+      <a class="heart-icon">
+        <img src="/assets/brand/heart.svg">
+      </a>
+      <img [src]="'https://localhost:7023/media/products/' + item.image" style="width: 200px; height: 200px;" class="img-fluid" alt="">
+    </div>
+    <div class="product-card-text">
+      <h4 class="product-name">{{ item.name }}</h4>
+    </div>
+    <div class="price">{{ item.price | currency }}</div>
+    <a class="cart-add" [routerLink]="['/cart/add', item.id]">
+      <img src="assets/brand/shoping-cart-add.svg">
+    </a>
+    </div>
+</div>

@@ -1,33 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">MrWoody-Shop</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Category
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <app-category-list></app-category-list>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="categories/add">Create category</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<header class="main-header">
+  <a class="navbar-brand" [routerLink]="['/products', '']">
+    <img class="logo" src="/assets/brand/MrWoody.svg">
+  </a>
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" class="search-input" placeholder="Search...">
     </div>
+    <button class="search-button">
+      <img class="search-logo" src="/assets/brand/search.svg">
+    </button>
+  </div>
+  <a class="nav-item" href="#">  
+    <img class="call" src="/assets/brand/call.svg" alt="Call">
+    <span class="call-text">Call now</span>
+  </a>
+</header> 
+
+<nav class="main-nav">
+  <div class="container-fluid">
+    <a class="nav-item" [routerLink]="['/products', '']">
+      <img class="menu-burger" src="/assets/brand/menu-burger.svg" alt="Menu">
+    </a>
+    <a class="nav-item" href="#">
+      <img class="shopping-cart" src="/assets/brand/shoping-cart.svg">
+    </a>
+    <a class="nav-item" href="#">
+      <img class="user" src="/assets/brand/user.svg" alt="User">
+    </a>
   </div>
 </nav>
 
