@@ -1,23 +1,36 @@
 <header class="main-header">
-  <a class="navbar-brand" [routerLink]="['/products', '']">
-    <img class="logo" src="/assets/brand/MrWoody.svg">
-  </a>
-  <div class="search-panel">
-    <div class="search-bar">
-      <input type="search" class="search-input" placeholder="Search...">
+  
+  <div class="container ">
+
+    <div class="row d-flex">
+      <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-12 col-sm-3">
+        <a class="navbar-brand" [routerLink]="['/products', '']">
+          <img class="logo" src="/assets/brand/MrWoody.svg">
+        </a>
+      </div>
+  
+    <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-8 col-sm-7 ">
+      <div class="search-panel">
+        <div class="search-bar">
+          <input type="search" class="search-input" placeholder="Search...">
+        </div>
+        <button class="search-button">
+          <img class="search-logo" src="/assets/brand/search.svg">
+        </button>
+      </div>
     </div>
-    <button class="search-button">
-      <img class="search-logo" src="/assets/brand/search.svg">
-    </button>
-  </div>
-  <a class="nav-item" href="#">  
-    <img class="call" src="/assets/brand/call.svg" alt="Call">
-    <span class="call-text">Call now</span>
-  </a>
+
+    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-2 ">
+      <a class="nav-item" href="#">  
+        <img class="call" src="/assets/brand/call.svg" alt="Call">
+        <span class="call-text">Call now</span>
+      </a>
+    </div>
+  </div></div> 
 </header> 
 
 <nav class="main-nav">
-  <div class="container-fluid">
+  <div class="container">
     <a class="nav-item" [routerLink]="['/products', '']">
       <img class="menu-burger" src="/assets/brand/menu-burger.svg" alt="Menu">
     </a>
@@ -31,3 +44,5 @@
 </nav>
 
 <router-outlet></router-outlet>
+
+
