@@ -12,6 +12,8 @@ import { PaginationResponse } from '../models/pagination-response.model';
 
 export class OnlineStoreApiService {
 
+    private token: string = '';
+
     onlineStoreApiUrl: string = environment.baseApiUrl;
 
     constructor(private http: HttpClient) { }
@@ -85,4 +87,15 @@ export class OnlineStoreApiService {
     deleteCategory(id: number) {
         return this.http.delete(this.onlineStoreApiUrl + `/categories/${id}`);
     }
+
+    //account
+
+    login(username: string, password: string): Observable<any> {
+        const body = {
+          username: username,
+          password: password
+        };
+    
+        return this.http.post(this.onlineStoreApiUrl, body);
+      }
 }

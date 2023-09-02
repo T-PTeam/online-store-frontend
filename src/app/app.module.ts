@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser'
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
+
+
 import { AppComponent } from './app.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { AddCategoryComponent } from './categories/add-category/add-category.component';
@@ -13,6 +15,8 @@ import { AddProductsComponent } from './products/add-products/add-products.compo
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
 import { EditProductsComponent } from './products/edit-products/edit-products.component';
+import { AccountComponent } from './account/account.component';
+import { AuthInterceptor } from './account/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { EditProductsComponent } from './products/edit-products/edit-products.co
     AddProductsComponent,
     AdminProductsComponent,
     AdminCategoriesComponent,
-    EditProductsComponent
+    EditProductsComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,13 @@ import { EditProductsComponent } from './products/edit-products/edit-products.co
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor, 
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
