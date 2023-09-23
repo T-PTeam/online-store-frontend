@@ -7,6 +7,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
 import { EditProductsComponent } from './products/edit-products/edit-products.component';
 import { AccountComponent } from './account/account.component';
+import { RegisterPageComponent } from './account/register-page/register-page.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent
+  },
+  {
+    path: 'register',
+    component: RegisterPageComponent
   },
 
 ];
