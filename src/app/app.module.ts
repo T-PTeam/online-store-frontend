@@ -4,12 +4,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { AddCategoryComponent } from './categories/add-category/add-category.component';
-import { FormsModule } from '@angular/forms';
 import { ProductsListComponent } from './products/products-list/products-list.component';
 import { AddProductsComponent } from './products/add-products/add-products.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
@@ -17,6 +17,7 @@ import { AdminCategoriesComponent } from './admin/admin-categories/admin-categor
 import { EditProductsComponent } from './products/edit-products/edit-products.component';
 import { AccountComponent } from './account/account.component';
 import { AuthInterceptor } from './account/auth.interceptor';
+import { RegisterPageComponent } from './account/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,15 @@ import { AuthInterceptor } from './account/auth.interceptor';
     AdminProductsComponent,
     AdminCategoriesComponent,
     EditProductsComponent,
-    AccountComponent
+    AccountComponent,
+    RegisterPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
