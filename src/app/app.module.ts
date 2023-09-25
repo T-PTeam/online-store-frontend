@@ -18,6 +18,7 @@ import { EditProductsComponent } from './products/edit-products/edit-products.co
 import { AccountComponent } from './account/account.component';
 import { AuthInterceptor } from './account/auth.interceptor';
 import { RegisterPageComponent } from './account/register-page/register-page.component';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { RegisterPageComponent } from './account/register-page/register-page.com
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [
+  providers: [AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor, 

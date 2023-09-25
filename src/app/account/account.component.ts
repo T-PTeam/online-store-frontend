@@ -26,7 +26,8 @@ export class AccountComponent  implements OnInit{
     
     this.authService.login(this.form.value).subscribe(
       ()=> this.router.navigate(['/products']),
-      error => console.error(error)    
+      error => console.error(error)
+    
     )
   }
 }
